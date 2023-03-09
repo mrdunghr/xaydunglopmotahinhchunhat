@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xây dựng lớp mô tả hình chữ nhật</title>
+</head>
+<body>
+<canvas id="DemoCanvas" width="500" height="400"></canvas>
+</body>
+<script>
+    function Rectangle(d, r,){
+        this.d = d;
+        this.r = r;
+
+        //chức năng tính chu vi và diện tích hình chữ nhật
+        this.sHCN = function (){
+            return d * r;
+        }
+        this.cHCN = function (){
+            return (d + r) * 2;
+        }
+
+        //chức năng kiem tra dài rộng hình chữ nhật
+        this.getD = function (){
+            return this.d;
+        }
+        this.getR = function (){
+            return this.r;
+        }
+    }
+    let rec = new Rectangle(300, 100);
+    let d = rec.getD();
+    let r = rec.getR();
+    document.write('Dài: ' + d)
+    document.write(' Rộng: ' + r + '<br>')
+    document.write('Diện tích = ' + rec.sHCN())
+    document.write(' - Chu vi = ' + rec.cHCN())
+    let canvas = document.getElementById('DemoCanvas')
+    let ctx = canvas.getContext('2d');
+    ctx.fillStyle = '#fa4b2a';
+    ctx.fillRect(0, 0, d, r)
+
+</script>
+</html>
